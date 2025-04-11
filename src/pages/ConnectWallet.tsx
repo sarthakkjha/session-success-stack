@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '@/context/app-context';
-import { Wallet } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Wallet } from 'lucide-react';
 
 const ConnectWallet: React.FC = () => {
   const navigate = useNavigate();
@@ -20,11 +20,11 @@ const ConnectWallet: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center py-12 px-4">
+    <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center py-12 px-4 bg-gradient-to-b from-background to-secondary/50">
       <div className="w-full max-w-md">
-        <div className="glass rounded-2xl p-8 text-center">
-          <div className="h-16 w-16 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mx-auto mb-6">
-            <Wallet className="h-8 w-8 text-brand-600 dark:text-brand-400" />
+        <div className="glass rounded-2xl p-8 text-center card-hover">
+          <div className="h-20 w-20 rounded-2xl purple-gradient flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <Wallet className="h-10 w-10 text-white" />
           </div>
           
           <h1 className="text-2xl font-bold mb-2">Connect Your Wallet</h1>
@@ -33,17 +33,29 @@ const ConnectWallet: React.FC = () => {
           </p>
           
           <div className="space-y-4">
-            <Button className="w-full" onClick={handleConnectWallet}>
-              Connect Wallet
+            <Button className="w-full purple-gradient text-white hover:opacity-90 group" onClick={handleConnectWallet}>
+              Connect Base Wallet
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" className="w-full" onClick={handleSkip}>
+            
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-border"></div>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-card px-2 text-muted-foreground">Or</span>
+              </div>
+            </div>
+            
+            <Button variant="outline" className="w-full border-primary/30" onClick={handleSkip}>
               Skip for Now
             </Button>
           </div>
           
-          <p className="mt-6 text-xs text-muted-foreground">
-            By connecting your wallet, you agree to our Terms of Service and Privacy Policy.
-          </p>
+          <div className="mt-8 flex items-center justify-center text-xs text-muted-foreground">
+            <ShieldCheck className="h-4 w-4 mr-1 text-primary" />
+            <p>Your wallet is protected by our secure encryption</p>
+          </div>
         </div>
       </div>
     </div>
