@@ -1,153 +1,183 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import DownloadStrip from '@/components/layout/DownloadStrip';
+import { ArrowRight, Clock, Shield, Zap, Focus, Target, Gift } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
   return (
-    <>
-      <DownloadStrip />
-      
-      <main>
-        {/* Hero Section */}
-        <section className="py-16 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-brand-100 dark:bg-brand-900/30 px-3 py-1 text-sm">
-                  Focus. Earn. Grow.
-                </div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Boost Your Productivity with Blockchain Rewards
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Set your work session goals, stake crypto, and earn rewards for staying focused. 
-                  FocusChain uses blockchain technology to help you build better productivity habits.
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link to="/signup">
-                    <Button size="lg" className="w-full min-[400px]:w-auto">
-                      Get Started
-                    </Button>
-                  </Link>
-                  <Link to="/login">
-                    <Button size="lg" variant="outline" className="w-full min-[400px]:w-auto">
-                      Sign In
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="mx-auto relative">
-                <div className="relative glass rounded-xl overflow-hidden w-full aspect-video">
-                  <div className="animate-pulse-slow rounded-xl bg-brand-200/50 dark:bg-brand-800/20 absolute inset-0"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-brand-600 dark:text-brand-300 font-medium">App Preview</p>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-lg bg-brand-500 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-background via-background/95 to-background/90">
+      {/* Ambient background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_-20%,rgba(120,119,198,0.1),transparent)]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-400/10 rounded-full blur-3xl" />
+      </div>
 
-        {/* Features Section */}
-        <section className="py-16 md:py-24 bg-muted/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-brand-100 dark:bg-brand-900/30 px-3 py-1 text-sm">
-                  Features
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  How FocusChain Works
-                </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our innovative platform helps you stay focused and productive using blockchain rewards.
-                </p>
-              </div>
+      {/* Hero Section */}
+      <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto mb-20">
+            <div className="inline-flex items-center rounded-full bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-500">
+              <Zap className="h-4 w-4 mr-2" />
+              Your Focus is Worth More
             </div>
-            <div className="mx-auto grid gap-8 md:gap-12 lg:grid-cols-3 mt-12">
-              <div className="glass rounded-xl p-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 h-20 w-20 -mt-8 -mr-8 bg-brand-100 dark:bg-brand-900/30 rounded-full"></div>
-                <div className="relative">
-                  <div className="h-12 w-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-600 dark:text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold">Set Up Your Session</h3>
-                  <p className="text-muted-foreground mt-2">
-                    Choose your focus apps, set a timer, and stake an amount of crypto as your commitment.
-                  </p>
-                </div>
-              </div>
-              <div className="glass rounded-xl p-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 h-20 w-20 -mt-8 -mr-8 bg-brand-100 dark:bg-brand-900/30 rounded-full"></div>
-                <div className="relative">
-                  <div className="h-12 w-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-600 dark:text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold">Stay Focused</h3>
-                  <p className="text-muted-foreground mt-2">
-                    Our app tracks which applications you're using to ensure you're staying on task.
-                  </p>
-                </div>
-              </div>
-              <div className="glass rounded-xl p-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 h-20 w-20 -mt-8 -mr-8 bg-brand-100 dark:bg-brand-900/30 rounded-full"></div>
-                <div className="relative">
-                  <div className="h-12 w-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-600 dark:text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold">Earn Rewards</h3>
-                  <p className="text-muted-foreground mt-2">
-                    Successfully complete your session to retain your stake or choose to donate it to charity.
-                  </p>
-                </div>
-              </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80">
+              Turn Your Focus Into{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600">
+                Rewards
+              </span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Stake crypto, maintain focus, earn rewards. A revolutionary approach to productivity 
+              that makes every focused minute count.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <Link to="/signup" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto group bg-brand-500 hover:bg-brand-600">
+                  Start Earning
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link to="/login" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-brand-500/20 hover:border-brand-500/40">
+                  View Demo
+                </Button>
+              </Link>
             </div>
           </div>
-        </section>
 
-        {/* Call to Action Section */}
-        <section className="py-16 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="glass rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-400/20 to-brand-600/20 dark:from-brand-400/10 dark:to-brand-600/10"></div>
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Ready to Boost Your Productivity?
-                </h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                  Join thousands of users who have improved their focus and productivity with FocusChain.
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link to="/signup">
-                    <Button size="lg" className="w-full min-[400px]:w-auto">
-                      Start for Free
-                    </Button>
-                  </Link>
-                  <Link to="/login">
-                    <Button size="lg" variant="outline" className="w-full min-[400px]:w-auto">
-                      Learn More
-                    </Button>
-                  </Link>
+          {/* App Preview */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="relative glass rounded-3xl overflow-hidden shadow-2xl bg-background/50 backdrop-blur-sm p-8 border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-400/5 to-brand-600/5" />
+              <div className="relative">
+                <div className="space-y-8">
+                  <div className="flex justify-between items-center">
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-semibold">Current Session</h3>
+                      <p className="text-muted-foreground">Stay focused to earn rewards</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-brand-500">$30.00</div>
+                      <div className="text-sm text-muted-foreground">Staked Amount</div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="h-4 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 w-[85%] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.2)_50%,transparent_100%)] animate-shimmer" />
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <div className="space-y-1">
+                        <div className="text-xl font-medium">51:00</div>
+                        <div className="text-muted-foreground">Minutes Remaining</div>
+                      </div>
+                      <div className="text-right space-y-1">
+                        <div className="text-xl font-medium">85%</div>
+                        <div className="text-muted-foreground">Session Complete</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="space-y-1">
+                      <div className="text-muted-foreground text-sm">Potential Earnings</div>
+                      <div className="text-xl font-semibold text-green-500">+$7.50</div>
+                    </div>
+                    <div className="space-y-1 text-right">
+                      <div className="text-muted-foreground text-sm">Focus Score</div>
+                      <div className="text-xl font-semibold text-brand-500">98/100</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-8 -left-8 h-40 w-40 rounded-3xl bg-brand-500/10 backdrop-blur-sm flex items-center justify-center rotate-12">
+              <Target className="h-12 w-12 text-brand-500" />
+            </div>
+            <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-3xl bg-brand-500/10 backdrop-blur-sm flex items-center justify-center -rotate-12">
+              <Gift className="h-12 w-12 text-brand-500" />
+            </div>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 md:py-32 relative">
+        <div className="container px-4 md:px-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="glass rounded-2xl p-8 relative group hover:shadow-lg transition-all duration-300 border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent rounded-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
+              <div className="relative space-y-4">
+                <div className="h-12 w-12 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-6 w-6 text-brand-500" />
+                </div>
+                <h3 className="text-xl font-bold">Time Tracking</h3>
+                <p className="text-muted-foreground">
+                  Set your focus duration and let our smart tracking keep you accountable.
+                </p>
+              </div>
+            </div>
+
+            <div className="glass rounded-2xl p-8 relative group hover:shadow-lg transition-all duration-300 border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent rounded-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
+              <div className="relative space-y-4">
+                <div className="h-12 w-12 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="h-6 w-6 text-brand-500" />
+                </div>
+                <h3 className="text-xl font-bold">Stake & Earn</h3>
+                <p className="text-muted-foreground">
+                  Put your crypto at stake and earn rewards for maintaining focus.
+                </p>
+              </div>
+            </div>
+
+            <div className="glass rounded-2xl p-8 relative group hover:shadow-lg transition-all duration-300 border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-transparent rounded-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
+              <div className="relative space-y-4">
+                <div className="h-12 w-12 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-6 w-6 text-brand-500" />
+                </div>
+                <h3 className="text-xl font-bold">Smart Focus</h3>
+                <p className="text-muted-foreground">
+                  AI-powered tracking ensures you stay on your chosen productive apps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 md:py-32 relative">
+        <div className="container px-4 md:px-6">
+          <div className="glass rounded-3xl p-12 relative overflow-hidden border border-white/10">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-brand-600/5" />
+            <div className="relative z-10 flex flex-col items-center text-center space-y-6 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Ready to Maximize Your{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600">
+                  Productivity?
+                </span>
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Join thousands of focused individuals who've earned rewards while boosting their productivity.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link to="/signup" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto group bg-brand-500 hover:bg-brand-600">
+                    Get Started Now
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 
