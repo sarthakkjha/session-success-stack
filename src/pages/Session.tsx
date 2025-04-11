@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,20 +16,18 @@ const Session: React.FC = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  // If no current session, redirect to new session page
   useEffect(() => {
     if (!currentSession) {
       navigate('/new-session');
     }
   }, [currentSession, navigate]);
   
-  // Timer countdown
   useEffect(() => {
     if (!isActive || timeLeft <= 0) return;
     
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
-        const newTime = prev - 1/60; // Decrease by 1 second (1/60 of a minute)
+        const newTime = prev - 1/60;
         if (newTime <= 0) {
           clearInterval(timer);
           handleSuccess();
@@ -44,11 +41,9 @@ const Session: React.FC = () => {
     return () => clearInterval(timer);
   }, [isActive, timeLeft, currentSession]);
   
-  // Simulate checking if user is using allowed apps
   useEffect(() => {
     const checkApps = setInterval(() => {
-      // In a real app, this would check which apps are currently active
-      const isUsingForbiddenApp = Math.random() < 0.1; // 10% chance of distraction
+      const isUsingForbiddenApp = Math.random() < 0.1;
       
       if (isUsingForbiddenApp && isActive) {
         setDistractions((prev) => prev + 1);
@@ -58,12 +53,11 @@ const Session: React.FC = () => {
           variant: "destructive"
         });
         
-        // If too many distractions, end session as failure
         if (distractions >= 2) {
           handleFailure();
         }
       }
-    }, 10000); // Check every 10 seconds
+    }, 10000);
     
     return () => clearInterval(checkApps);
   }, [distractions, isActive]);
@@ -134,8 +128,7 @@ const Session: React.FC = () => {
                   </div>
                   <Progress 
                     value={(distractions / 3) * 100} 
-                    className="h-2" 
-                    indicatorClassName="bg-amber-500"
+                    className="h-2 bg-amber-100 dark:bg-amber-900/30"
                   />
                   <p className="text-sm text-muted-foreground">
                     After 3 distractions, your session will end as a failure.

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link, useNavigate } from 'react-router-dom';
-import { BarChart, LineChart } from '@/components/ui/chart'; // Using shadcn chart component
+import { BarChart, LineChart } from '@/components/ui/custom-charts'; // Updated import
 import { useApp } from '@/context/app-context';
 import { CheckCircle, Clock, DollarSign, XCircle } from 'lucide-react';
 

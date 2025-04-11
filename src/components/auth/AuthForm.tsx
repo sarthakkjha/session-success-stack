@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Google } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '@/context/app-context';
 
@@ -21,7 +20,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mock authentication
     const mockUser = {
       name: mode === 'signup' ? name : 'John Doe',
       email,
@@ -32,12 +30,10 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
     setUser(mockUser);
     setIsAuthenticated(true);
     
-    // Check if the user has a wallet connected
     navigate('/connect-wallet');
   };
 
   const handleGoogleAuth = () => {
-    // Mock Google authentication
     const mockUser = {
       name: 'John Doe',
       email: 'john.doe@example.com',
@@ -48,7 +44,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
     setUser(mockUser);
     setIsAuthenticated(true);
     
-    // Navigate to wallet connection
     navigate('/connect-wallet');
   };
 
@@ -120,7 +115,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode }) => {
               className="w-full"
               type="button"
             >
-              <Google className="h-4 w-4 mr-2" />
+              <Mail className="h-4 w-4 mr-2" />
               Google
             </Button>
           </div>
