@@ -2,11 +2,12 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "tsc && vite build",
+    "electron:dev": "tsc -p electron/tsconfig.json && electron dist-electron/dev.js",
+    "electron:build": "tsc -p electron/tsconfig.json && vite build && electron-builder",
+    "electron:start": "electron .",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -65,11 +66,16 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22.5.5",
+    "@types/electron": "^1.4.38",
+    "@types/node": "^22.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12",
+    "electron-squirrel-startup": "^1.0.1",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
@@ -80,5 +86,32 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
+  },
+  "main": "dist-electron/main.js",
+  "build": {
+    "appId": "com.session-success.app",
+    "productName": "Session Success",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
   }
 }
