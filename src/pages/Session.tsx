@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -154,14 +153,14 @@ const Session: React.FC = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <AlertTriangle className="h-5 w-5 text-amber-500" />
+                      <AlertTriangle className="h-5 w-5 text-warning" />
                       <span className="font-medium">Distractions</span>
                     </div>
                     <span className="text-2xl font-bold">{distractions}/3</span>
                   </div>
                   <Progress 
                     value={(distractions / 3) * 100} 
-                    className="h-2.5 bg-amber-100 dark:bg-amber-900/30" 
+                    className="h-2.5 bg-warning/20" 
                   />
                   <p className="text-sm text-muted-foreground">
                     After 3 distractions, your session will end as a failure.

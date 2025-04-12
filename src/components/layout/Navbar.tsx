@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -18,7 +17,7 @@ const Navbar: React.FC = () => {
           <div className="h-9 w-9 rounded-xl purple-gradient flex items-center justify-center shadow-md">
             <Zap className="h-5 w-5 text-white" />
           </div>
-          <span className="font-bold text-xl">Focus<span className="bg-clip-text text-transparent purple-gradient">Flow</span></span>
+          <span className="font-bold text-xl">Mind<span className="bg-clip-text text-transparent purple-gradient">Lock</span></span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -72,15 +71,15 @@ const Navbar: React.FC = () => {
                 <Button variant="ghost">Log in</Button>
               </Link>
               <Link to="/signup">
-                <Button className="purple-gradient text-white hover:opacity-90">Sign up</Button>
+                <Button variant="gradient">Sign up</Button>
               </Link>
             </div>
           ) : (
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium">
                 {user?.walletConnected ? (
-                  <span className="text-green-500 flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-full bg-green-500"></span>
+                  <span className="text-success flex items-center gap-1">
+                    <span className="h-2 w-2 rounded-full bg-success"></span>
                     Wallet Connected
                   </span>
                 ) : (
