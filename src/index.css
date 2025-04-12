@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,6 +27,12 @@
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
@@ -61,6 +66,12 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
+    --success: 142 65% 40%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 47.4% 11.2%;
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 263 70% 70%;
@@ -81,16 +92,20 @@
   .glass {
     @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border border-white/20 dark:border-slate-800/50 shadow-lg;
   }
-  
+
   .glass-dark {
     @apply bg-slate-900/50 backdrop-blur-lg border border-slate-800/50 shadow-lg;
   }
-  
+
   .purple-gradient {
-    @apply bg-gradient-to-br from-purple-500 to-indigo-600;
+    @apply bg-gradient-to-br from-primary to-indigo-600;
   }
-  
+
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .focus-ring {
+    @apply ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
   }
 }
