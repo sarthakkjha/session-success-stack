@@ -18,10 +18,10 @@ app.use((req, res, next) => {
 const PORT = 6969;
 
 app.get("/api/screenpipe", async (req, res) => {
-  console.log("Received request at /api/screenpipe");
+  // console.log("Received request at /api/screenpipe");
   try {
     const fiveMinutesAgo = new Date(Date.now() - 1 * 60 * 1000).toISOString();
-    console.log("Querying screenpipe with time:", fiveMinutesAgo);
+    // console.log("Querying screenpipe with time:", fiveMinutesAgo);
 
     const results = await pipe.queryScreenpipe({
       startTime: fiveMinutesAgo,
@@ -53,7 +53,6 @@ app.get("/api/screenpipe", async (req, res) => {
       return null;
     }).filter(Boolean);
 
-    console.log("Sending formatted results:", formattedResults);
     res.json({ data: formattedResults });
   } catch (err) {
     console.error("Error querying screenpipe:", err);

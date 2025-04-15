@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "electron:dev": "tsc -p electron/tsconfig.json && electron dist-electron/dev.js",
+    "electron:dev": "cross-env NODE_ENV=development tsc -p electron/tsconfig.json && electron dist-electron/main.js",
     "electron:build": "tsc -p electron/tsconfig.json && vite build && electron-builder",
     "electron:start": "electron .",
     "lint": "eslint .",
@@ -82,6 +82,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "electron": "^35.1.5",
     "electron-builder": "^26.0.12",
     "electron-squirrel-startup": "^1.0.1",
