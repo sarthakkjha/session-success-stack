@@ -9,23 +9,36 @@ import DistractionTracker from '@/components/session/DistractionTracker';
 import AllowedApps from '@/components/session/AllowedApps';
 import SessionDetails from '@/components/session/SessionDetails';
 import FocusAssistant from '@/components/session/FocusAssistant';
-import ScreenActivityMonitor from '@/components/session/ScreenActivityMonitor';
+import { useScreenActivityMonitor } from '@/components/session/ScreenActivityMonitor';
+import { getGroqResponse } from '@/lib/groqApi';
 
 const Session: React.FC = () => {
   const { currentSession, updateSession } = useApp();
   const [timeLeft, setTimeLeft] = useState(currentSession?.duration || 0);
-  const [distractions, setDistractions] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [progress, setProgress] = useState(100);
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'assistant', content: string}[]>([
     {role: 'assistant', content: 'Hi there! I\'m your focus assistant. How can I help you stay productive today?'}
   ]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isMonitoring, setIsMonitoring] = useState(false);
-  const [screenActivity, setScreenActivity] = useState<string[]>([]);
   
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const handleFailure = () => {
+    if (currentSession) {
+      updateSession(currentSession.id, {
+        status: 'failed',
+        distractions: screenDistractions
+      });
+      navigate('/session-complete?status=failed');
+    }
+  };
+
+  const { distractions: screenDistractions } = useScreenActivityMonitor({
+    allowedApps: currentSession?.apps || [],
+    onMaxDistractions: handleFailure
+  });
   
   useEffect(() => {
     if (!currentSession) {
@@ -52,44 +65,13 @@ const Session: React.FC = () => {
     return () => clearInterval(timer);
   }, [isActive, timeLeft, currentSession]);
   
-  useEffect(() => {
-    const checkApps = setInterval(() => {
-      const isUsingForbiddenApp = Math.random() < 0.1;
-      
-      if (isUsingForbiddenApp && isActive) {
-        setDistractions((prev) => prev + 1);
-        toast({
-          title: "Distraction detected!",
-          description: "You're using an app that's not on your allowed list.",
-          variant: "destructive"
-        });
-        
-        if (distractions >= 2) {
-          handleFailure();
-        }
-      }
-    }, 10000);
-    
-    return () => clearInterval(checkApps);
-  }, [distractions, isActive]);
-  
   const handleSuccess = () => {
     if (currentSession) {
       updateSession(currentSession.id, {
         status: 'success',
-        distractions
+        distractions: screenDistractions
       });
       navigate('/session-complete?status=success');
-    }
-  };
-  
-  const handleFailure = () => {
-    if (currentSession) {
-      updateSession(currentSession.id, {
-        status: 'failed',
-        distractions
-      });
-      navigate('/session-complete?status=failed');
     }
   };
 
@@ -97,28 +79,21 @@ const Session: React.FC = () => {
     handleFailure();
   };
 
-  const handleSendMessage = (message: string) => {
+  const handleSendMessage = async (message: string) => {
     if (!message.trim()) return;
     
-    // Add user message to chat
     setChatHistory(prev => [...prev, {role: 'user', content: message}]);
     setIsLoading(true);
     
-    // Simulate AI response (in real app, call Gemini API)
-    setTimeout(() => {
-      const responses = [
-        "Try breaking down your task into smaller, manageable chunks.",
-        "Remember to take short breaks every 25 minutes to maintain focus.",
-        "If you're feeling stuck, try changing your environment or approach.",
-        "Great question! Focus on one task at a time to maximize productivity.",
-        "I recommend setting specific goals for each session to track progress."
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      
-      setChatHistory(prev => [...prev, {role: 'assistant', content: randomResponse}]);
-      setIsLoading(false);
-    }, 1000);
+    const updatedChat = [
+      ...chatHistory,
+      { role: 'user', content: message }
+    ];
+
+    const assistantResponse = await getGroqResponse(updatedChat);
+
+    setChatHistory(prev => [...prev, { role: 'assistant', content: assistantResponse }]);
+    setIsLoading(false);
   };
 
   if (!currentSession) return null;
@@ -143,8 +118,8 @@ const Session: React.FC = () => {
                 />
                 
                 <DistractionTracker 
-                  distractions={distractions}
-                  maxDistractions={3}
+                  distractions={screenDistractions}
+                  maxDistractions={5}
                 />
                 
                 <AllowedApps apps={currentSession.apps} />
@@ -158,11 +133,6 @@ const Session: React.FC = () => {
                 <Button variant="destructive" onClick={handleGiveUp}>
                   Give Up
                 </Button>
-              </CardFooter>
-              <CardFooter className="flex justify-end">
-                <ScreenActivityMonitor
-                  
-                />
               </CardFooter>
             </Card>
           </div>

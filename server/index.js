@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const PORT = 5000;
+const PORT = 6969;
 
 app.get("/api/screenpipe", async (req, res) => {
   console.log("Received request at /api/screenpipe");
@@ -23,12 +23,11 @@ app.get("/api/screenpipe", async (req, res) => {
     const fiveMinutesAgo = new Date(Date.now() - 1 * 60 * 1000).toISOString();
     console.log("Querying screenpipe with time:", fiveMinutesAgo);
 
-    // Initialize pipe with Node.js specific options
     const results = await pipe.queryScreenpipe({
       startTime: fiveMinutesAgo,
       limit: 10,
       contentType: "all",
-      environment: "node" // Add environment flag
+      environment: "node"
     });
 
     if (!results || !results.data) {
@@ -36,7 +35,6 @@ app.get("/api/screenpipe", async (req, res) => {
       return res.json({ data: [] });
     }
 
-    console.log(results);
     // Process and format the results
     const formattedResults = results.data.map(item => {
       if (item.type === "OCR") {
