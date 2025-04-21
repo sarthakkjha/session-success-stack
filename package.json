@@ -1,17 +1,16 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "session-success",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "electron:dev": "tsc -p electron/tsconfig.json && electron dist-electron/dev.js",
-    "electron:build": "tsc -p electron/tsconfig.json && vite build && electron-builder",
-    "electron:start": "electron .",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.38.7",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -20,103 +19,56 @@
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-context-menu": "^2.2.1",
-    "@radix-ui/react-dialog": "^1.1.7",
+    "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-hover-card": "^1.1.1",
-    "@radix-ui/react-label": "^2.1.3",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-menubar": "^1.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.0",
-    "@radix-ui/react-popover": "^1.1.7",
+    "@radix-ui/react-popover": "^1.1.1",
     "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-scroll-area": "^1.1.0",
-    "@radix-ui/react-select": "^2.1.7",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slider": "^1.2.4",
-    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-slider": "^1.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
-    "@radix-ui/react-tooltip": "^1.2.0",
-    "@screenpipe/browser": "^0.1.40",
-    "@screenpipe/dev": "^1.2.8",
-    "@screenpipe/js": "^1.0.21",
+    "@radix-ui/react-tooltip": "^1.1.4",
     "@tanstack/react-query": "^5.56.2",
+    "@types/uuid": "^10.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
+    "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
-    "embla-carousel-react": "^8.3.0",
-    "input-otp": "^1.2.4",
-    "lodash": "^4.17.21",
-    "lucide-react": "^0.487.0",
-    "next-themes": "^0.4.6",
+    "lucide-react": "^0.462.0",
+    "next-themes": "^0.3.0",
     "react": "^18.3.1",
-    "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
-    "react-resizable-panels": "^2.1.3",
     "react-router-dom": "^6.26.2",
-    "recharts": "^2.12.7",
-    "sonner": "^2.0.3",
+    "recharts": "^2.15.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.1.0",
-    "vaul": "^0.9.3",
+    "viem": "^2.27.0",
+    "wagmi": "^2.14.16",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@tailwindcss/typography": "^0.5.15",
-    "@types/electron": "^1.4.38",
-    "@types/lodash": "^4.17.16",
     "@types/node": "^22.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.4",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.20",
-    "electron": "^35.1.5",
-    "electron-builder": "^26.0.12",
-    "electron-squirrel-startup": "^1.0.1",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.9.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",
-    "lovable-tagger": "^1.1.7",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.11",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  },
-  "main": "dist-electron/main.js",
-  "build": {
-    "appId": "com.session-success.app",
-    "productName": "Session Success",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/**/*",
-      "dist-electron/**/*"
-    ],
-    "mac": {
-      "target": [
-        "dmg"
-      ]
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ]
-    }
   }
 }

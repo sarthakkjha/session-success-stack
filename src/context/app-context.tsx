@@ -1,5 +1,6 @@
-
 import React, { createContext, useContext, useState } from 'react';
+import { useConnect, useAccount, useDisconnect } from 'wagmi';
+import { coinbaseWallet } from 'wagmi/connectors';
 
 interface Session {
   id: string;
@@ -17,17 +18,22 @@ interface AppContextType {
     email: string;
     walletConnected: boolean;
     balance: number;
+    address?: string;
   } | null;
   sessions: Session[];
   currentSession: Session | null;
   isAuthenticated: boolean;
-  setUser: (user: { name: string; email: string; walletConnected: boolean; balance: number; } | null) => void;
+  setUser: (user: { name: string; email: string; walletConnected: boolean; balance: number; address?: string; } | null) => void;
   setIsAuthenticated: (value: boolean) => void;
   setSessions: (sessions: Session[]) => void;
   setCurrentSession: (session: Session | null) => void;
   addSession: (session: Session) => void;
   updateSession: (sessionId: string, updates: Partial<Session>) => void;
-  connectWallet: () => void;
+  connectWallet: () => Promise<void>;
+  disconnectWallet: () => Promise<void>;
+  isConnecting: boolean;
+  isDisconnecting: boolean;
+  address: string | undefined;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -38,10 +44,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     email: string;
     walletConnected: boolean;
     balance: number;
+    address?: string;
   } | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [sessions, setSessions] = useState<Session[]>([]);
   const [currentSession, setCurrentSession] = useState<Session | null>(null);
+
+  const { connectAsync: connect, isPending: isConnecting } = useConnect();
+  const { disconnectAsync: disconnect, isPending: isDisconnecting } = useDisconnect();
+  const { address } = useAccount();
 
   const addSession = (session: Session) => {
     setSessions((prev) => [...prev, session]);
@@ -55,9 +66,34 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     );
   };
 
-  const connectWallet = () => {
-    // This would be implemented with actual blockchain connection
-    setUser((prev) => (prev ? { ...prev, walletConnected: true } : null));
+  const connectWallet = async () => {
+    try {
+      await connect({ connector: coinbaseWallet() });
+      setUser((prev) => 
+        prev ? { 
+          ...prev, 
+          walletConnected: true,
+          address: address 
+        } : null
+      );
+    } catch (error) {
+      console.error('Failed to connect wallet:', error);
+    }
+  };
+
+  const disconnectWallet = async () => {
+    try {
+      await disconnect();
+      setUser((prev) => 
+        prev ? { 
+          ...prev, 
+          walletConnected: false,
+          address: undefined 
+        } : null
+      );
+    } catch (error) {
+      console.error('Failed to disconnect wallet:', error);
+    }
   };
 
   return (
@@ -74,6 +110,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         addSession,
         updateSession,
         connectWallet,
+        disconnectWallet,
+        isConnecting,
+        isDisconnecting,
+        address,
       }}
     >
       {children}
