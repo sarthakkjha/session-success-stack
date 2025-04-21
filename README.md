@@ -97,13 +97,4 @@ We welcome contributions, suggestions, and feedback! Whether you're a developer,
 
 ---
 
-## 📫 Contact
-
-Have questions or ideas? Reach out to us:
-- GitHub Issues
-- [Your Email or Team Contact Info]
-- [LinkedIn or Social Profiles if any]
-
----
-
 **Built with ❤️ to combat the biggest issue of today's time**
