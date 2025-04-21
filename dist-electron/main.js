@@ -11,6 +11,7 @@ process.env.NODE_ENV = 'development';
 // console.log(`NODE_ENV explicitly set to: ${process.env.NODE_ENV}`); // Removed debug log
 let serverProcess = null;
 let viteProcess = null;
+let screenpipeProcess = null;
 const VITE_DEV_SERVER_URL = 'http://localhost:5173';
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -135,6 +136,30 @@ electron_1.app.whenReady().then(async () => {
         console.log(`Server process exited with code ${code}`);
         serverProcess = null;
     });
+    // Start the screenpipe process
+    console.log('Starting screenpipe process...');
+    try {
+        screenpipeProcess = (0, child_process_1.spawn)('screenpipe', [], {
+            shell: true,
+            stdio: 'pipe'
+        });
+        screenpipeProcess.stdout?.on('data', (data) => {
+            // console.log(`Screenpipe stdout: ${data.toString().trim()}`); // Removed stdout log
+        });
+        screenpipeProcess.stderr?.on('data', (data) => {
+            // console.error(`Screenpipe stderr: ${data.toString().trim()}`); // Removed stderr log
+        });
+        screenpipeProcess.on('error', (error) => {
+            console.error(`Failed to start screenpipe process: ${error}`);
+        });
+        screenpipeProcess.on('close', (code) => {
+            console.log(`Screenpipe process exited with code ${code}`);
+            screenpipeProcess = null;
+        });
+    }
+    catch (error) {
+        console.error(`Error spawning screenpipe: ${error}`);
+    }
     // Create the window (waits for Vite if in development)
     await createWindow();
     electron_1.app.on('activate', () => {
@@ -149,7 +174,7 @@ electron_1.app.on('window-all-closed', () => {
         electron_1.app.quit();
     }
 });
-// Ensure server and vite processes are killed when the app quits
+// Ensure server, vite, and screenpipe processes are killed when the app quits
 electron_1.app.on('will-quit', () => {
     if (serverProcess) {
         console.log('Killing server process...');
@@ -158,6 +183,10 @@ electron_1.app.on('will-quit', () => {
     if (viteProcess) {
         console.log('Killing Vite process...');
         viteProcess.kill();
+    }
+    if (screenpipeProcess) {
+        console.log('Killing Screenpipe process...');
+        screenpipeProcess.kill();
     }
 });
 process.on('uncaughtException', (error) => {
