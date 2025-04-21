@@ -6,8 +6,6 @@ Welcome to **Paytension**, a productivity and accountability platform designed t
 
 FocusFi is a web application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is donated to charity.
 
-This app is built for a hackathon using a fixed tech stack: **Base**, **ScreenPipe**, and **Grok AI**.
-
 ---
 
 ## 🧠 Why Paytension?
@@ -16,7 +14,6 @@ In today’s digital world, staying focused is harder than ever. Paytension help
 - Boost productivity by introducing financial accountability.
 - Reduce distractions by tracking app usage in real time.
 - Support charitable causes even in failure.
-- Empower users with AI assistance through Grok AI.
 
 ---
 
@@ -31,12 +28,12 @@ In today’s digital world, staying focused is harder than ever. Paytension help
    - Select apps to whitelist (allowed) or blacklist (not allowed) using ScreenPipe.
 
 3. **Start Session**
-   - FocusFi monitors real-time activity.
+   - paytension monitors real-time activity.
    - If a user uses unapproved apps or exits early, they get up to 5 warnings.
    - Crossing the limit or quitting early results in session failure.
 
 4. **During the Session**
-   - Users get access to an AI assistant powered by **Grok AI** to help with tasks and queries.
+   - Users get access to an AI assistant powered by **Groq AI** to help with tasks and queries.
 
 5. **End of Session**
    - Success: Get back the staked money.
@@ -62,7 +59,7 @@ Users can access their personal dashboard with the following insights:
 |------------------|-----------------|
 | Wallet & Blockchain | **Base**       |
 | App Monitoring   | **ScreenPipe**   |
-| AI Assistant     | **Grok AI**      |
+| AI Assistant     | **Groq AI**      |
 | Frontend         | React.js         |
 | Backend          | Node.js, Express |
 | Database         | MongoDB (or alternative) |
