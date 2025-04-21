@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, Wallet } from 'lucide-react';
-import { ConnectButton } from '@coinbase/onchainkit/components';
+import { ConnectButton } from '@coinbase/onchainkit/wallet';
 
 const ConnectWallet: React.FC = () => {
   const navigate = useNavigate();
 
+  // On successful connection, you can navigate to dashboard if needed
   const handleSuccess = () => {
     navigate('/dashboard');
   };
@@ -26,7 +27,7 @@ const ConnectWallet: React.FC = () => {
             Connect your Base wallet to stake crypto and earn rewards for your productivity sessions.
           </p>
           <div className="space-y-4">
-            <ConnectButton onSuccess={handleSuccess} />
+            <ConnectButton onSuccess={handleSuccess} className="w-full" />
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-border"></div>
