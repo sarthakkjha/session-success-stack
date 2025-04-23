@@ -85,9 +85,6 @@ const createWindow = async () => {
   });
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.whenReady().then(async () => {
   console.log(`App ready. Main process NODE_ENV: ${process.env.NODE_ENV}`);
 
@@ -116,7 +113,6 @@ app.whenReady().then(async () => {
     console.log('Skipping Vite dev server start (NODE_ENV is not \'development\')');
   }
 
-  // Start the Node backend server process
   const serverDir = path.join(__dirname, '..', 'server');
   console.log(`Starting server process in: ${serverDir}`);
   serverProcess = spawn('node', ['index.js'], {
@@ -193,8 +189,36 @@ app.on('will-quit', () => {
   }
   if (screenpipeProcess) {
     console.log('Killing Screenpipe process...');
+    try {
+      screenpipeProcess.kill();
+      // Force kill after 5 seconds if process hasn't exited
+      setTimeout(() => {
+        if (screenpipeProcess) {
+          console.log('Force killing Screenpipe process...');
+          screenpipeProcess.kill('SIGKILL');
+        }
+      }, 5000);
+    } catch (error) {
+      console.error('Error killing Screenpipe process:', error);
+    }
+  }
+});
+
+// Handle process termination signals
+process.on('SIGTERM', () => {
+  console.log('Received SIGTERM signal');
+  if (screenpipeProcess) {
     screenpipeProcess.kill();
   }
+  app.quit();
+});
+
+process.on('SIGINT', () => {
+  console.log('Received SIGINT signal');
+  if (screenpipeProcess) {
+    screenpipeProcess.kill();
+  }
+  app.quit();
 });
 
 process.on('uncaughtException', (error) => {

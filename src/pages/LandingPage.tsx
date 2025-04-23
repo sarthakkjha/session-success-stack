@@ -24,23 +24,18 @@ const LandingPage: React.FC = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80">
               Turn Your Focus Into{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600">
-                Rewards
+                Success
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              Stake crypto, maintain focus, earn rewards. A revolutionary approach to productivity 
-              that makes every focused minute count.
+              Stake crypto, maintain focus, get refunded. A revolutionary approach to productivity 
+              that makes every focused minute count towards your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link to="/signup" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto group bg-brand-500 hover:bg-brand-600">
-                  Start Earning
+                  Start Staking
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-              <Link to="/login" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-brand-500/20 hover:border-brand-500/40">
-                  View Demo
                 </Button>
               </Link>
             </div>
@@ -55,10 +50,10 @@ const LandingPage: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <div className="space-y-1">
                       <h3 className="text-2xl font-semibold">Current Session</h3>
-                      <p className="text-muted-foreground">Stay focused to earn rewards</p>
+                      <p className="text-muted-foreground">Stay focused to get refunded</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-brand-500">$30.00</div>
+                      <div className="text-2xl font-bold text-brand-500">0.00001 ETH</div>
                       <div className="text-sm text-muted-foreground">Staked Amount</div>
                     </div>
                   </div>
@@ -81,8 +76,8 @@ const LandingPage: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-6">
                     <div className="space-y-1">
-                      <div className="text-muted-foreground text-sm">Potential Earnings</div>
-                      <div className="text-xl font-semibold text-green-500">+$7.50</div>
+                      <div className="text-muted-foreground text-sm">Refund Status</div>
+                      <div className="text-xl font-semibold text-green-500">On Track</div>
                     </div>
                     <div className="space-y-1 text-right">
                       <div className="text-muted-foreground text-sm">Focus Score</div>
@@ -92,20 +87,12 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute -top-8 -left-8 h-40 w-40 rounded-3xl bg-brand-500/10 backdrop-blur-sm flex items-center justify-center rotate-12">
-              <Target className="h-12 w-12 text-brand-500" />
-            </div>
-            <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-3xl bg-brand-500/10 backdrop-blur-sm flex items-center justify-center -rotate-12">
-              <Gift className="h-12 w-12 text-brand-500" />
-            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 md:py-32 relative">
+      <section className="py-12 md:py-20 relative">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="glass rounded-2xl p-8 relative group hover:shadow-lg transition-all duration-300 border border-white/10">
@@ -127,9 +114,9 @@ const LandingPage: React.FC = () => {
                 <div className="h-12 w-12 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Shield className="h-6 w-6 text-brand-500" />
                 </div>
-                <h3 className="text-xl font-bold">Stake & Earn</h3>
+                <h3 className="text-xl font-bold">Stake & Refund</h3>
                 <p className="text-muted-foreground">
-                  Put your crypto at stake and earn rewards for maintaining focus.
+                  Put your crypto at stake and get refunded for maintaining focus.
                 </p>
               </div>
             </div>
@@ -144,34 +131,6 @@ const LandingPage: React.FC = () => {
                 <p className="text-muted-foreground">
                   AI-powered tracking ensures you stay on your chosen productive apps.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 relative">
-        <div className="container px-4 md:px-6">
-          <div className="glass rounded-3xl p-12 relative overflow-hidden border border-white/10">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-brand-600/5" />
-            <div className="relative z-10 flex flex-col items-center text-center space-y-6 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Ready to Maximize Your{' '}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-brand-600">
-                  Productivity?
-                </span>
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Join thousands of focused individuals who've earned rewards while boosting their productivity.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link to="/signup" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto group bg-brand-500 hover:bg-brand-600">
-                    Get Started Now
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>

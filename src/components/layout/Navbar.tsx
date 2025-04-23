@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
                     </span>
                     {address && (
                       <span className="text-xs text-muted-foreground break-all">
-                        {address}
+                        {`${address.slice(0, 6)}...${address.slice(-4)}`}
                       </span>
                     )}
                   </div>

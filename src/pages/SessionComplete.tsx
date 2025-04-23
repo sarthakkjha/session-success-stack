@@ -101,7 +101,7 @@ const SessionComplete: React.FC = () => {
                     </div>
                     <p className="font-medium">Keep Funds</p>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Return ${currentSession.amount} to your wallet
+                      Return {currentSession.amount} ETH to your wallet
                     </p>
                   </div>
                   <div 
