@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -116,12 +115,12 @@ const Dashboard: React.FC = () => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">
-              Total Amount
+              Total Amount (ETH)
             </CardTitle>
             <DollarSign className="h-4 w-4 text-yellow-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${statsData.totalAmount}</div>
+            <div className="text-2xl font-bold">0.0001 ETH</div>
             <p className="text-xs text-muted-foreground">
               +{Math.floor(Math.random() * 10) + 1}% from last week
             </p>

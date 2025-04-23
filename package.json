@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.38.7",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -43,7 +44,7 @@
     "@screenpipe/browser": "^0.1.40",
     "@screenpipe/dev": "^1.2.8",
     "@screenpipe/js": "^1.0.21",
-    "@tanstack/react-query": "^5.56.2",
+    "@tanstack/react-query": "^5.74.4",
     "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -68,6 +69,8 @@
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.1.0",
     "vaul": "^0.9.3",
+    "viem": "^2.28.0",
+    "wagmi": "^2.14.16",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -99,8 +102,8 @@
   },
   "main": "dist-electron/main.js",
   "build": {
-    "appId": "com.session-success.app",
-    "productName": "Session Success",
+    "appId": "com.coincentrate.app",
+    "productName": "Coincentrate",
     "directories": {
       "output": "release"
     },

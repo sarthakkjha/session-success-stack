@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
               <div className="h-9 w-9 rounded-xl purple-gradient flex items-center justify-center shadow-md">
                 <Zap className="h-5 w-5 text-white" />
               </div>
-              <span className="font-bold text-xl">Mind<span className="bg-clip-text text-transparent purple-gradient">Lock</span></span>
+              <span className="font-bold text-xl">Coin<span className="bg-clip-text text-transparent purple-gradient">centrate</span></span>
             </Link>
             <p className="text-muted-foreground">
               Blockchain-powered productivity tracking that rewards focus and discipline.
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2025 MindLock. All rights reserved.
+              © 2025 Coincentrate. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,7 +23,10 @@ const apps = [
 const NewSession: React.FC = () => {
   const [selectedApps, setSelectedApps] = useState<string[]>([]);
   const [duration, setDuration] = useState(30);
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(0);
+  const [manualAppName, setManualAppName] = useState('');
+  const [blockedUrls, setBlockedUrls] = useState<string[]>([]);
+  const [currentUrlInput, setCurrentUrlInput] = useState('');
   const navigate = useNavigate();
   const { setCurrentSession, addSession } = useApp();
   
@@ -33,6 +35,30 @@ const NewSession: React.FC = () => {
       setSelectedApps(selectedApps.filter(app => app !== appName));
     } else {
       setSelectedApps([...selectedApps, appName]);
+    }
+  };
+  
+  const handleAddManualApp = () => {
+    const trimmedName = manualAppName.trim();
+    if (trimmedName && !selectedApps.includes(trimmedName)) {
+      setSelectedApps([...selectedApps, trimmedName]);
+      setManualAppName('');
+    } else if (selectedApps.includes(trimmedName)) {
+      alert(`${trimmedName} is already selected.`);
+    }
+  };
+  
+  const handleAddUrl = () => {
+    const trimmedUrl = currentUrlInput.trim();
+    if (trimmedUrl && !blockedUrls.includes(trimmedUrl)) {
+      if (trimmedUrl.includes('.') || trimmedUrl.startsWith('http')) {
+        setBlockedUrls([...blockedUrls, trimmedUrl]);
+        setCurrentUrlInput('');
+      } else {
+        alert('Please enter a valid URL or domain name.');
+      }
+    } else if (blockedUrls.includes(trimmedUrl)) {
+      alert(`URL '${trimmedUrl}' is already added.`);
     }
   };
   
@@ -57,7 +83,7 @@ const NewSession: React.FC = () => {
     setCurrentSession(newSession);
     addSession(newSession);
     
-    navigate('/session');
+    navigate('/payment');
   };
 
   return (
@@ -74,7 +100,7 @@ const NewSession: React.FC = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-4">
                 {apps.map((app) => (
                   <div key={app.id} className="flex items-start space-x-2">
                     <Checkbox
@@ -88,6 +114,59 @@ const NewSession: React.FC = () => {
                   </div>
                 ))}
               </div>
+              <div className="flex space-x-2 mt-4 pt-4 border-t">
+                <Input
+                  placeholder="Add custom app..."
+                  value={manualAppName}
+                  onChange={(e) => setManualAppName(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddManualApp(); } }}
+                />
+                <Button type="button" onClick={handleAddManualApp} variant="secondary">
+                  Add App
+                </Button>
+              </div>
+              {selectedApps.length > 0 && (
+                <div className="mt-4 pt-4 border-t">
+                  <Label className="font-medium">Selected Apps:</Label>
+                  <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
+                    {selectedApps.map((app) => (
+                      <li key={app}>{app}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+          
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Block Websites</CardTitle>
+              <CardDescription>
+                Enter URLs or domain names to block during your session.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex space-x-2 mb-4">
+                <Input
+                  placeholder="e.g., youtube.com or news.com"
+                  value={currentUrlInput}
+                  onChange={(e) => setCurrentUrlInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddUrl(); } }}
+                />
+                <Button type="button" onClick={handleAddUrl} variant="secondary">
+                  Add URL
+                </Button>
+              </div>
+              {blockedUrls.length > 0 && (
+                <div className="mt-4 pt-4 border-t">
+                  <Label className="font-medium">Blocked URLs/Domains:</Label>
+                  <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
+                    {blockedUrls.map((url, index) => (
+                      <li key={`${url}-${index}`}>{url}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </CardContent>
           </Card>
           
@@ -129,11 +208,10 @@ const NewSession: React.FC = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                <Label htmlFor="amount">Amount ($)</Label>
+                <Label htmlFor="amount">Amount (ETH)</Label>
                 <Input
                   id="amount"
                   type="number"
-                  min={1}
                   max={100}
                   value={amount}
                   onChange={(e) => setAmount(Number(e.target.value))}

@@ -4,10 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Moon, Sun, Zap } from 'lucide-react';
 import { useTheme } from '@/context/theme-context';
 import { useApp } from '@/context/app-context';
+import { useAccount } from 'wagmi';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { isAuthenticated, user } = useApp();
+  const { address, isConnected } = useAccount();
+  const walletConnected = isConnected || user?.walletConnected;
   const location = useLocation();
 
   return (
@@ -17,7 +20,7 @@ const Navbar: React.FC = () => {
           <div className="h-9 w-9 rounded-xl purple-gradient flex items-center justify-center shadow-md">
             <Zap className="h-5 w-5 text-white" />
           </div>
-          <span className="font-bold text-xl">Mind<span className="bg-clip-text text-transparent purple-gradient">Lock</span></span>
+          <span className="font-bold text-xl">Coin<span className="bg-clip-text text-transparent purple-gradient">centrate</span></span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -77,14 +80,23 @@ const Navbar: React.FC = () => {
           ) : (
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium">
-                {user?.walletConnected ? (
-                  <span className="text-success flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-full bg-success"></span>
-                    Wallet Connected
-                  </span>
+                {walletConnected ? (
+                  <div className="flex flex-col items-start gap-1">
+                    <span className="text-success flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-success"></span>
+                      Wallet Connected
+                    </span>
+                    {address && (
+                      <span className="text-xs text-muted-foreground break-all">
+                        {address}
+                      </span>
+                    )}
+                  </div>
                 ) : (
                   <Link to="/connect-wallet">
-                    <Button variant="outline" size="sm" className="border-primary/50 text-primary hover:bg-primary/10">Connect Wallet</Button>
+                    <Button variant="outline" size="sm" className="border-primary/50 text-primary hover:bg-primary/10">
+                      Connect Wallet
+                    </Button>
                   </Link>
                 )}
               </span>

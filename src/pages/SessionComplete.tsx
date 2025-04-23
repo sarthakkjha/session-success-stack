@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -70,7 +69,7 @@ const SessionComplete: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Amount Staked</p>
-                  <p className="font-medium">${currentSession.amount}</p>
+                  <p className="font-medium">{currentSession.amount} ETH</p>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Distractions</p>
@@ -121,11 +120,10 @@ const SessionComplete: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4 pt-4">
-                <h3 className="font-medium">We've donated your funds to charity</h3>
+                <h3 className="font-medium">Session Failed</h3>
                 <div className="bg-muted rounded-lg p-4">
                   <p className="text-sm text-muted-foreground">
-                    Your ${currentSession.amount} has been donated to the Global Education Fund, 
-                    which helps provide education to children around the world.
+                    Though you didn't hit your focus target this time, your contribution still makes a difference. Your {currentSession.amount} ETH will fund books, school supplies, and meals for underprivileged children in rural India—helping them learn, grow, and reach for brighter futures.
                   </p>
                 </div>
                 <Button className="w-full" onClick={() => navigate('/dashboard')}>
