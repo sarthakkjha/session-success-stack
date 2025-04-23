@@ -1,10 +1,10 @@
-# 🎯 Cointention – Bet on Your Focus, Earn or Give
+# 🎯 Cointention – Transform your productivity with purpose
 
 Welcome to **Cointention**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
 
 ## 🌟 What is Cointention?
 
-Cointention is a web application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
+Cointention is a desktop application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
 
 ---
 
