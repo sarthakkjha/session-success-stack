@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center rounded-full bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-500">
-              <Zap className="h-4 w-4 mr-2" />
+              <img src="/assets/logo.png" alt="Coincentrate Logo" className="h-6 w-auto mr-2" />
               Your Focus is Worth More
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80">

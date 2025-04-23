@@ -9,9 +9,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-xl purple-gradient flex items-center justify-center shadow-md">
-                <Zap className="h-5 w-5 text-white" />
-              </div>
+              <img 
+                src="/assets/logo.png" 
+                alt="Coincentrate Logo" 
+                className="h-12 w-auto"
+              />
               <span className="font-bold text-xl">Coin<span className="bg-clip-text text-transparent purple-gradient">centrate</span></span>
             </Link>
             <p className="text-muted-foreground">
