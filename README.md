@@ -1,14 +1,14 @@
-# 🎯 Paytension – Bet on Your Focus, Earn or Give
+# 🎯 Cointention – Bet on Your Focus, Earn or Give
 
-Welcome to **Paytension**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
+Welcome to **Cointention**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
 
-## 🌟 What is Paytension?
+## 🌟 What is Cointention?
 
-FocusFi is a web application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is donated to charity.
+Cointention is a web application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
 
 ---
 
-## 🧠 Why Paytension?
+## 🧠 Why Cointention?
 
 In today’s digital world, staying focused is harder than ever. Paytension helps:
 - Boost productivity by introducing financial accountability.
@@ -28,7 +28,7 @@ In today’s digital world, staying focused is harder than ever. Paytension help
    - Select apps to whitelist (allowed) or blacklist (not allowed) using ScreenPipe.
 
 3. **Start Session**
-   - paytension monitors real-time activity.
+   - Screenpipe monitors real-time activity.
    - If a user uses unapproved apps or exits early, they get up to 5 warnings.
    - Crossing the limit or quitting early results in session failure.
 
@@ -91,7 +91,3 @@ Paytension is more than an app—it's a movement. We aim to:
 ## 🙌 Contributing
 
 We welcome contributions, suggestions, and feedback! Whether you're a developer, designer, or enthusiast, feel free to fork this repo and make it even better.
-
----
-
-**Built with ❤️ to combat the biggest issue of today's time**
