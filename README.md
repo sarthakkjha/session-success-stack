@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# 🎯 Cointention – Bet on Your Focus, Earn or Give
 
-## Project info
+Welcome to **Cointention**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
 
-**URL**: https://lovable.dev/projects/f15ca7b0-c914-4c26-8956-d00410ae48d2
+## 🌟 What is Cointention?
 
-## How can I edit this code?
+Cointention is a web application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🧠 Why Cointention?
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f15ca7b0-c914-4c26-8956-d00410ae48d2) and start prompting.
+In today’s digital world, staying focused is harder than ever. Paytension helps:
+- Boost productivity by introducing financial accountability.
+- Reduce distractions by tracking app usage in real time.
+- Support charitable causes even in failure.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 How It Works
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Login & Wallet Connection**
+   - Users sign in and connect their crypto wallet using the **Base** platform.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Set Up a Focus Session**
+   - Choose the amount of time to focus.
+   - Decide how much money to stake.
+   - Select apps to whitelist (allowed) or blacklist (not allowed) using ScreenPipe.
 
-Follow these steps:
+3. **Start Session**
+   - Screenpipe monitors real-time activity.
+   - If a user uses unapproved apps or exits early, they get up to 5 warnings.
+   - Crossing the limit or quitting early results in session failure.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **During the Session**
+   - Users get access to an AI assistant powered by **Groq AI** to help with tasks and queries.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+5. **End of Session**
+   - Success: Get back the staked money.
+   - Failure: Stake is donated to a charity.
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📊 Analytics & Dashboard
 
-**Edit a file directly in GitHub**
+Users can access their personal dashboard with the following insights:
+- Total focus hours
+- Number of successful vs failed sessions
+- Weekly focus trends
+- Amount staked and donated
+- App-wise success rates
+- Recent session summaries
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🛠️ Tech Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Component        | Technology      |
+|------------------|-----------------|
+| Wallet & Blockchain | **Base**       |
+| App Monitoring   | **ScreenPipe**   |
+| AI Assistant     | **Groq AI**      |
+| Frontend         | React.js         |
+| Backend          | Node.js, Express |
+| Database         | MongoDB (or alternative) |
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🔮 Future Roadmap
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+We plan to expand Paytension with:
+- Mobile app versions (iOS & Android)
+- Gamified experience with leaderboards and badges
+- Community focus challenges
+- Enhanced charity support options
+- Integration with productivity tools (Notion, Google Calendar, etc.)
+- A Team/Groap Focus Session
+- Focus Challenges sponsored by sponsors
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/f15ca7b0-c914-4c26-8956-d00410ae48d2) and click on Share -> Publish.
+## ❤️ Our Mission
 
-## Can I connect a custom domain to my Lovable project?
+Paytension is more than an app—it's a movement. We aim to:
+- Build a focused and disciplined digital generation.
+- Promote responsible digital behavior.
+- Turn every lost moment into an opportunity to give back.
 
-Yes it is!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🙌 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+We welcome contributions, suggestions, and feedback! Whether you're a developer, designer, or enthusiast, feel free to fork this repo and make it even better.
