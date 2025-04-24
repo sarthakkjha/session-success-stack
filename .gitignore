@@ -11,8 +11,8 @@ node_modules
 dist
 dist-ssr
 build
-release
 *.local
+release
 
 # Editor directories and files
 .vscode/*

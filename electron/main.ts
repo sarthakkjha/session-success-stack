@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { spawn, ChildProcess } from 'child_process';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+process.env.NODE_ENV = 'development';
 
 let serverProcess: ChildProcess | null = null;
 let viteProcess: ChildProcess | null = null;
@@ -13,6 +13,7 @@ const VITE_DEV_SERVER_URL = 'http://localhost:5173';
 if (require('os').platform() === 'win32') {
   require('electron-squirrel-startup');
 }
+
 
 async function waitForViteServer(url: string, maxAttempts = 60): Promise<boolean> {
   for (let i = 0; i < maxAttempts; i++) {

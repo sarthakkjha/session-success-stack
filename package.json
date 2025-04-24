@@ -121,7 +121,7 @@
       "target": [
         "nsis"
       ],
-      "icon": "assets/logo.ico"
+      "icon": "assets/icon.ico"
     },
     "linux": {
       "target": [
