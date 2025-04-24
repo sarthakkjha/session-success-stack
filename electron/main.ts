@@ -3,18 +3,15 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { spawn, ChildProcess } from 'child_process';
 
-// Force development mode for testing - Keeping this for now, but consider removing if cross-env works later
-process.env.NODE_ENV = 'development';
-// console.log(`NODE_ENV explicitly set to: ${process.env.NODE_ENV}`); // Removed debug log
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 let serverProcess: ChildProcess | null = null;
 let viteProcess: ChildProcess | null = null;
 let screenpipeProcess: ChildProcess | null = null;
 const VITE_DEV_SERVER_URL = 'http://localhost:5173';
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) {
-  app.quit();
+if (require('os').platform() === 'win32') {
+  require('electron-squirrel-startup');
 }
 
 async function waitForViteServer(url: string, maxAttempts = 60): Promise<boolean> {

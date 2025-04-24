@@ -114,17 +114,20 @@
     "mac": {
       "target": [
         "dmg"
-      ]
+      ],
+      "icon": "assets/icon.icns"
     },
     "win": {
       "target": [
         "nsis"
-      ]
+      ],
+      "icon": "assets/logo.ico"
     },
     "linux": {
       "target": [
         "AppImage"
-      ]
+      ],
+      "icon": "assets/logo.png"
     }
   }
 }

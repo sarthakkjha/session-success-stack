@@ -25,7 +25,7 @@ export const useScreenActivityMonitor = ({ allowedApps, onMaxDistractions }: Use
     if (Notification.permission === "granted") {
       new Notification("Focus Alert", {
         body: message,
-        icon: "assets/chrome-icon.png",
+        icon: "assets/logo.png",
         requireInteraction: true,
         tag: 'app-detection'
       });
@@ -34,7 +34,7 @@ export const useScreenActivityMonitor = ({ allowedApps, onMaxDistractions }: Use
         if (permission === "granted") {
           new Notification("Focus Alert", {
             body: message,
-            icon: "assets/chrome-icon.png",
+            icon: "assets/logo.png",
             requireInteraction: true,
             tag: 'app-detection'
           });
@@ -86,7 +86,7 @@ export const useScreenActivityMonitor = ({ allowedApps, onMaxDistractions }: Use
         const data = await res.json();
         const appName = data.data[0]?.content?.appName;
         
-        if (appName && !allowedApps.includes(appName) && appName !== 'Electron') {
+        if (appName && !allowedApps.includes(appName) && appName !== 'Electron' && appName !== 'Coincentrate') {
           if (!unauthorizedAppRef.current) {
             handleUnauthorizedApp(appName);
           } else if (unauthorizedAppRef.current === appName) {
