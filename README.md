@@ -1,16 +1,16 @@
-# 🎯 Cointention – Transform your productivity with purpose
+# 🎯 Coincentrate – Transform your productivity with purpose
 
-Welcome to **Cointention**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
+Welcome to **Coincentrate**, a productivity and accountability platform designed to help users stay focused, achieve their goals, and contribute to meaningful causes—all in one session.
 
-## 🌟 What is Cointention?
+## 🌟 What is Coincentrate?
 
-Cointention is a desktop application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
+Coincentrate is a desktop application where users **stake money** on their ability to **stay focused** during a self-defined work session. If they succeed, they get their money back. If they fail (due to distractions or early exit), their stake is used to fund education of under-privileged kids in rural India.
 
 ---
 
-## 🧠 Why Cointention?
+## 🧠 Why Coincentrate?
 
-In today’s digital world, staying focused is harder than ever. Paytension helps:
+In today’s digital world, staying focused is harder than ever. Coincentrate helps:
 - Boost productivity by introducing financial accountability.
 - Reduce distractions by tracking app usage in real time.
 - Support charitable causes even in failure.
@@ -68,7 +68,7 @@ Users can access their personal dashboard with the following insights:
 
 ## 🔮 Future Roadmap
 
-We plan to expand Paytension with:
+We plan to expand Coincentrate with:
 - Mobile app versions (iOS & Android)
 - Gamified experience with leaderboards and badges
 - Community focus challenges
@@ -81,7 +81,7 @@ We plan to expand Paytension with:
 
 ## ❤️ Our Mission
 
-Paytension is more than an app—it's a movement. We aim to:
+Coincentrate is more than an app—it's a movement. We aim to:
 - Build a focused and disciplined digital generation.
 - Promote responsible digital behavior.
 - Turn every lost moment into an opportunity to give back.
