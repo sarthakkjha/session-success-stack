@@ -180,9 +180,10 @@ List improvements, extensions, or follow-up features:
 
 ## 📎 Resources / Credits
 
-- APIs or datasets used  
-- Open source libraries or tools referenced  
-- Acknowledgements  
+- ElectronJS official documentation [Link](https://www.electronjs.org/docs/latest)
+- Screenpipe official documentation [Link](https://docs.screenpi.pe/home) 
+- Base official documentation [Link](https://docs.base.org/)
+- Groq API reference [Link](https://console.groq.com/docs/api-reference#chat-create)
 
 ---
 
@@ -193,6 +194,6 @@ There were plenty of challenges—from figuring out real-time monitoring without
 
 One of our biggest takeaways? Tech is at its best when it improves lives and does good in the world. The thought that someone's failed focus session could help a child in a rural village access education—that kept us going.
 
-Big shout-out to the amazing folks behind Base, ScreenPipe, and Grok AI—your tools made this possible and namespace for organizing such an amazing hackathon.
+Big shout-out to the hackathon organisers and the amazing folks behind Base, ScreenPipe, and Grok AI—your tools made this possible and namespace for organizing such an amazing hackathon.
 
 ---
