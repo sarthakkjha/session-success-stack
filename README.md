@@ -14,8 +14,11 @@
 
 ## 🎯 Objective
 
-What problem does your project solve, and who does it serve?  
-Briefly describe the real-world use case and the value it provides.
+Our project helps people stay focused and avoid distractions while working or studying. It is designed for students, professionals, or anyone who wants to improve their focus and productivity.
+
+The app allows users to start a "focus session" by selecting which apps they are allowed to use, how long they want to stay focused, and how much money they want to stake. If they succeed, they get their money back. If they get distracted too many times or leave the session early, their money is donated to a charity that supports education for underprivileged children in rural areas.
+
+This system adds real motivation for users to stay focused and productive, while also contributing to a good cause if they fail. It also provides helpful analytics and a built-in AI assistant to support users during their session.
 
 ---
 
@@ -31,9 +34,46 @@ Briefly describe the real-world use case and the value it provides.
 - Akshdeep Singh [LinkedIn](https://www.linkedin.com/in/akshdeep-singh-a03821282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 ### Your Approach:  
-- Why you chose this problem  
-- Key challenges you addressed  
-- Any pivots, brainstorms, or breakthroughs during hacking  
+- Why we chose this problem:
+  In the age of digital distraction, staying focused has become a real challenge. We aimed to tackle this by blending technology with behavioral psychology—encouraging focus    through financial commitment and offering users a meaningful way to improve their productivity. If they fail, the money supports a charitable cause, making the outcome        impactful either way.
+
+- Key challenges we addressed:
+  - Real-Time App Monitoring
+    Challenge: Tracking user activity in real-time without significant performance overhead.
+    Solution: Used lightweight libraries like ScreenPipe for app monitoring and optimized the monitoring frequency to reduce CPU usage. Implemented caching to avoid redundant     checks.
+  
+  - Session State Management
+    Challenge: Accurately tracking session states and handling edge cases like app crashes or unexpected user behavior.
+    Solution: Implemented a robust state management system using React Context and Redux. Added fallback mechanisms to save session data locally in case of crashes.
+    
+  - Blockchain Integration
+    Challenge: Ensuring secure wallet connections and handling transaction failures.
+    Solution: Used wagmi and ethers.js for wallet integration via Base’s Onchain Kit. Added retry logic for failed transactions and provided clear feedback to users.
+
+  - AI Assistant Integration
+    Challenge: Ensuring the AI assistant provides accurate and context-aware responses.
+    Solution: Integrated Grok AI with custom prompts tailored to user productivity use-cases. Added fallback responses for API rate limits or outages.
+
+  - Error Handling
+    Challenge: Handling uncaught exceptions and network failures gracefully.
+    Solution: Implemented global error handlers in both Electron's main process and the React frontend. Added retry logic and displayed user-friendly error messages.
+
+  - Cross-Platform Compatibility
+    Challenge: Ensuring the Electron app works seamlessly on Windows, macOS, and Linux.
+    Solution: Used Electron’s platform APIs with conditional logic for platform-specific behavior. Verified builds on all platforms during development.
+
+  - User Privacy
+    Challenge: Balancing productivity tracking with privacy.
+    Solution: Ensured all monitoring using ScreenPipe is local—no sensitive data is sent externally. Provided a clear privacy policy and opt-out options.
+
+- pivots, brainstorms, or breakthroughs we got during hacking:
+  - We initially thought of deducting a percentage of users' staked money on failure, but we pivoted to a more purposeful outcome—donating the full amount to a charity for        underprivileged children’s education
+    
+  - While exploring various distraction detection tools, we chose ScreenPipe because of its ability to perform local monitoring, which significantly helped us maintain user       privacy.
+    
+  - Integrating an AI assistant within the session (using Grok AI) was a key breakthrough—users no longer need to break focus to search for help or ideas.
+    
+  - Building a comprehensive analytics dashboard evolved from a basic log to a powerful feature that keeps users engaged by visualizing their focus patterns and progress.
 
 ---
 
@@ -52,12 +92,31 @@ Briefly describe the real-world use case and the value it provides.
 
 ## ✨ Key Features
 
-Highlight the most important features of your project:
+Highlighting the most important features of our project:
 
-- ✅ Feature 1  
-- ✅ Feature 2  
-- ✅ Feature 3  
-- ✅ Feature 4  
+✅ Focus-Based Staking Mechanism
+Users stake ETH on their ability to stay focused. If they succeed, they get their money back; if they fail, the money goes to charity—adding real accountability to productivity.
+
+✅ On-Chain Wallet Integration (Base Onchain Kit)
+Seamless and secure wallet connection using Base’s Onchain Kit for logging in and handling all crypto transactions directly on the blockchain.
+
+✅ Real-Time Distraction Monitoring (ScreenPipe)
+Live tracking of app usage to ensure users stay on whitelisted apps during a focus session. Alerts are issued for every distraction, with failure rules enforced automatically.
+
+✅ AI-Powered Focus Assistant (Grok AI)
+Integrated AI chatbot to help users with coding, writing, and brainstorming tasks in real-time—without needing to exit their focus session.
+
+✅ Charity-Powered Motivation Model
+If users fail their session, their staked ETH is donated to educational charities supporting underprivileged children in rural areas, giving the app a strong social impact.
+
+✅ Interactive Analytics Dashboard
+Users get detailed insights including success/failure stats, total hours focused, ETH staked, weekly performance, app-wise success rate, and recent sessions.
+
+✅ Customizable Focus Sessions
+Users can set their session duration, stake amount, and whitelist or blacklist specific apps to tailor their focus environment.
+
+✅ Cross-Platform Support via Electron
+Designed to work smoothly across Windows, macOS, and Linux through an Electron-based desktop application.
 
 Add images, GIFs, or screenshots if helpful!
 
@@ -101,9 +160,11 @@ npm run electron:dev
 
 List improvements, extensions, or follow-up features:
 
-- 📈 More integrations  
-- 🛡️ Security enhancements  
-- 🌐 Localization / broader accessibility  
+- Mobile App Launch: iOS and Android versions to increase accessibility.
+- Gamification: Leaderboards, badges, and streaks to boost motivation.
+- Community Challenges: Group sessions with pooled stakes and shared goals.
+- Productivity Tool Integration: Sync with Google Calendar, Notion, and more.
+- Charity Expansion: Partnering with global NGOs for broader social impact.
 
 ---
 
@@ -116,7 +177,12 @@ List improvements, extensions, or follow-up features:
 ---
 
 ## 🏁 Final Words
+What a ride this hackathon has been! We started with a simple idea—can we help people stay focused in a world full of distractions? Along the way, it turned into something much more powerful: a tool that not only boosts productivity but also contributes to a meaningful cause.
 
-Share your hackathon journey — challenges, learnings, fun moments, or shout-outs!
+There were plenty of challenges—from figuring out real-time monitoring without breaching user privacy, to making blockchain transactions seamless for non-technical users. We had our fair share of sleepless nights, bug hunts, and “a-ha!” moments (like realizing ScreenPipe could handle local-only monitoring and protect user data) or even releasing sometimes we ourselves might need the help of our project which motivated us to work on it for more than just to win this hackathon.
+
+One of our biggest takeaways? Tech is at its best when it improves lives and does good in the world. The thought that someone's failed focus session could help a child in a rural village access education—that kept us going.
+
+Big shout-out to the amazing folks behind Base, ScreenPipe, and Grok AI—your tools made this possible and namespace for organizing such an amazing hackathon.
 
 ---
