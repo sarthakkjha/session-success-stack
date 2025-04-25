@@ -66,7 +66,7 @@ This system adds real motivation for users to stay focused and productive, while
     Challenge: Balancing productivity tracking with privacy.
     Solution: Ensured all monitoring using ScreenPipe is local—no sensitive data is sent externally. Provided a clear privacy policy and opt-out options.
 
-- pivots, brainstorms, or breakthroughs we got during hacking:
+- Pivots, brainstorms, or breakthroughs we got during hacking:
   - We initially thought of deducting a percentage of users' staked money on failure, but we pivoted to a more purposeful outcome—donating the full amount to a charity for        underprivileged children’s education
     
   - While exploring various distraction detection tools, we chose ScreenPipe because of its ability to perform local monitoring, which significantly helped us maintain user       privacy.
@@ -85,9 +85,9 @@ This system adds real motivation for users to stay focused and productive, while
 - APIs: Groq API, Base Onchain API
 
 ### Sponsor Technologies Used (if any):
-- ✅ **Groq:** _How you used Groq_  
-- ✅ **Base:** _AgentKit / OnchainKit / Smart Wallet usage_  
-- ✅ **Screenpipe:** _Screen-based analytics or workflows_  
+- ✅ **Groq:** Our focus-tracking app integrates Groq AI to power a productivity assistant chatbot. It provides real-time help with tasks like answering questions, summarizing content, and generating code snippets, all within the app. This keeps users engaged, reduces distractions, and improves their focus. 
+- ✅ **Base:** Our app uses OnchainKit for secure payments. Users lock funds before a session, which are refunded if they stay focused. If distracted, funds are donated to an NGO. This system promotes transparency, accountability, and focus through financial incentives. 
+- ✅ **Screenpipe:** Coincentrate integrates Screenpipe for real-time screen monitoring and local data storage, aligning with Screenpipe's goals. This integration enables efficient debugging, performance optimization, and a privacy-conscious approach, ensuring a secure and responsive user experience.
 ---
 
 ## ✨ Key Features
@@ -140,8 +140,8 @@ Add images, GIFs, or screenshots if helpful!
 
 ## ✅ Tasks & Bonus Checklist
 
-- ✅ **All members of the team completed the mandatory task - Followed at least 2 of our social channels and filled the form** (Details in Participant Manual)  
-- ✅ **All members of the team completed Bonus Task 2 - Signing up for Sprint.dev and filled the form (3 points)**  (Details in Participant Manual)
+- ✅ **All members of the team completed the mandatory task - Followed at least 2 of our social channels and filled the form**
+- ✅ **All members of the team completed Bonus Task 2 - Signing up for Sprint.dev and filled the form (3 points)**
 
 ---
 
