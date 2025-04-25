@@ -88,6 +88,40 @@ Coincentrate is more than an app—it's a movement. We aim to:
 
 ---
 
+## 💻 Installation
+
+To run this project locally, follow these steps:
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/sarthakkjha/session-success-stack.git](https://github.com/sarthakkjha/session-success-stack.git)
+    cd session-success-stack
+    ```
+2.  **Install Dependencies:**
+    Make sure you have Node.js installed on your machine. Then, install the required packages:
+    ```bash
+    npm install
+    ```
+3.  **Create .env File:**
+    Set up your environment variables:
+    ```bash
+    cp .env.example .env
+    ```
+    Then, open the `.env` file and fill in the required values, VITE_PUBLIC_ONCHAINKIT_API_KEY, VITE_GROQ_API_KEY and VITE_SERVER_URL=http://localhost:5173.
+    You can obtain onchain and groq api keys from the respective developer platforms.
+5.  **Run the Development Server:**
+    ```bash
+    npm run electron:dev
+    ```
+    Your app will now run locally on your system!
+
+---
+
 ## 🙌 Contributing
 
 We welcome contributions, suggestions, and feedback! Whether you're a developer, designer, or enthusiast, feel free to fork this repo and make it even better.
+
+
+
+
+
