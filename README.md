@@ -94,7 +94,7 @@ To run this project locally, follow these steps:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/sarthakkjha/session-success-stack.git](https://github.com/sarthakkjha/session-success-stack.git)
+    git clone https://github.com/sarthakkjha/session-success-stack.git
     cd session-success-stack
     ```
 2.  **Install Dependencies:**
