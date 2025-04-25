@@ -104,7 +104,9 @@ Seamless and secure wallet connection using Base’s Onchain Kit for logging in 
 
 ✅ Real-Time Distraction Monitoring (ScreenPipe)
 Live tracking of app usage to ensure users stay on whitelisted apps during a focus session. Alerts are issued for every distraction, with failure rules enforced automatically.
-<img width="322" alt="focusAlert" src="https://github.com/user-attachments/assets/0aac0603-bf3a-48cc-a3df-9de333e334f0" />
+<p align="left">
+  <img width="322" alt="focusAlert" src="https://github.com/user-attachments/assets/0aac0603-bf3a-48cc-a3df-9de333e334f0" />
+</p>
 
 ✅ AI-Powered Focus Assistant (Grok AI)
 Integrated AI chatbot to help users with coding, writing, and brainstorming tasks in real-time—without needing to exit their focus session.
