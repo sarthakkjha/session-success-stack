@@ -96,24 +96,31 @@ Highlighting the most important features of our project:
 
 ✅ Focus-Based Staking Mechanism
 Users stake ETH on their ability to stay focused. If they succeed, they get their money back; if they fail, the money goes to charity—adding real accountability to productivity.
+![SessionCreation](https://github.com/user-attachments/assets/5de50793-f23d-498d-9e15-0c239cc410b8)
 
 ✅ On-Chain Wallet Integration (Base Onchain Kit)
 Seamless and secure wallet connection using Base’s Onchain Kit for logging in and handling all crypto transactions directly on the blockchain.
+![image](https://github.com/user-attachments/assets/277fa899-7538-42bb-8a3e-fab10a1fda98)
 
 ✅ Real-Time Distraction Monitoring (ScreenPipe)
 Live tracking of app usage to ensure users stay on whitelisted apps during a focus session. Alerts are issued for every distraction, with failure rules enforced automatically.
 
 ✅ AI-Powered Focus Assistant (Grok AI)
 Integrated AI chatbot to help users with coding, writing, and brainstorming tasks in real-time—without needing to exit their focus session.
+![FocusSession](https://github.com/user-attachments/assets/057d461c-127b-49ed-9918-091409edf8de)
 
 ✅ Charity-Powered Motivation Model
 If users fail their session, their staked ETH is donated to educational charities supporting underprivileged children in rural areas, giving the app a strong social impact.
+![SessionFailed](https://github.com/user-attachments/assets/a7bd4a52-33d4-4737-ba62-b01af8e517dc)
 
 ✅ Interactive Analytics Dashboard
 Users get detailed insights including success/failure stats, total hours focused, ETH staked, weekly performance, app-wise success rate, and recent sessions.
+![dashboard](https://github.com/user-attachments/assets/1b37fe6c-6c06-400f-a151-8f71ac532d83)
 
 ✅ Customizable Focus Sessions
 Users can set their session duration, stake amount, and whitelist or blacklist specific apps to tailor their focus environment.
+![FocusSession](https://github.com/user-attachments/assets/039be912-405a-4f64-8267-866c7b8da8b3)
+
 
 ✅ Cross-Platform Support via Electron
 Designed to work smoothly across Windows, macOS, and Linux through an Electron-based desktop application.
